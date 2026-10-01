@@ -27,3 +27,7 @@ Upload the folder contents to a static host such as GitHub Pages. `index.html` m
 
 ## Packaging hardening
 The runtime is intentionally bundled into a single local JavaScript file (`js/app.js`) so startup does not depend on ES-module imports or additional JavaScript libraries. All application assets are local to this package.
+
+
+## Interval-driven manpower engine
+When representative interval CSV data is loaded, the monthly plan automatically uses an in-memory day-of-week + intraday profile, actual forecast-month calendars, configured HOOP, and Erlang C per interval. Monthly FTE is the sum of post-shrinkage interval agent-hours divided by standard paid FTE hours per month. No imported data is persisted.
