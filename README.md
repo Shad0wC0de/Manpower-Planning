@@ -1,27 +1,25 @@
-# WFM Planner V2
+# WFM Planner V2 — Self-Contained Validation Build
 
-Static, client-side WFM manpower planning prototype derived from the concepts in ErlangC-laude.
+Static, client-side workforce planning application for GitHub Pages or local hosting.
 
-## Included in this first build
-- Sunday-Saturday HOOP with open/close times
-- 15/30/60 minute interval selector; 30 minutes default
-- 12/18/24 month planning horizon
-- Months as columns and planning metrics as rows
-- Erlang C staffing engine with SL, ASA, occupancy cap, and shrinkage
-- Representative interval CSV import and interval calculation table
-- A/B scenario comparison
-- Excel (.xlsx) export of values using SheetJS in the browser
-- GitHub Pages-compatible static structure
+## Privacy / network design
+- No external CDNs, fonts, APIs, analytics, or third-party runtime dependencies.
+- No fetch/XHR/WebSocket/beacon calls.
+- No localStorage, sessionStorage, IndexedDB, cookies, or service-worker persistence.
+- Planning, scenario, interval CSV, and validation data are held only in page memory.
+- Refreshing or closing the page clears entered/imported data.
+- CSV files are read locally with the browser File API and are not uploaded by the application.
+- Excel-compatible export is generated locally with browser-native Blob APIs.
 
-## Important current limitation
-Monthly calculations currently assume volume is uniformly distributed across all open HOOP intervals. Imported interval data is calculated and displayed, but is not yet transformed into a normalized day-of-week/intraday profile and applied to every forecast month. That is the next modeling phase.
+## Validation
+Paste internal Planning File FTE values into the Validation tab. The app compares them to WFM Planner FTE and calculates:
+- Mean Error
+- MAE (Mean Absolute Error)
+- MAPE (Mean Absolute Percentage Error)
+- Minimum Error
+- Maximum Error
 
-## Run locally
-Because JavaScript modules are used, serve the folder rather than opening index.html directly:
+No validation values are saved by the application.
 
-    python3 -m http.server 8000
-
-Then open http://localhost:8000
-
-## Deploy to GitHub Pages
-Upload the folder contents to a repository/branch and configure GitHub Pages to publish from the repository root.
+## Deploy
+Upload the folder contents to a static host such as GitHub Pages. `index.html` must remain at the project root.
