@@ -23,3 +23,7 @@ No validation values are saved by the application.
 
 ## Deploy
 Upload the folder contents to a static host such as GitHub Pages. `index.html` must remain at the project root.
+
+
+## Packaging hardening
+The runtime is intentionally bundled into a single local JavaScript file (`js/app.js`) so startup does not depend on ES-module imports or additional JavaScript libraries. All application assets are local to this package.
